@@ -1,0 +1,53 @@
+name: Static site CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+      - run: npm test
+      - run: npm run check
+      - name: Verify local references
+        run: |
+          test -f index.html
+          test -f activities.html
+          test -f assets/studentrex-mark.svg
+          ! grep -R "images.unsplash.com" index.html activities.html scripts assets
+
+  deploy:
+    if: github.event_name != 'pull_request' && github.event.repository.visibility == 'public'
+    needs: verify
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/configure-pages@v5
+      - name: Assemble static site
+        run: |
+          mkdir dist
+          cp index.html activities.html dist/
+          cp -R assets scripts styles dist/
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+      - id: deployment
+        uses: actions/deploy-pages@v4

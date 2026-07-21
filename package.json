@@ -1,0 +1,10 @@
+{
+  "name": "studentrex-rexburg-guide",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node --check scripts/activities.js && node --check scripts/main.js",
+    "test": "node --test"
+  }
+}

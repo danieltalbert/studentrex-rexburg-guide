@@ -379,6 +379,28 @@ nav {
     padding-top: 0.75rem;
 }
 
+.card-source {
+    display: inline-flex;
+    gap: 0.35rem;
+    margin-top: 1rem;
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.card-source:hover,
+.card-source:focus-visible {
+    color: var(--secondary);
+    text-decoration: underline;
+}
+
+.data-note {
+    max-width: 760px;
+    margin: 0.75rem auto 0;
+    color: #5d6570;
+    font-size: 0.9rem;
+}
+
 /* ========================================
    Footer
    ======================================== */
