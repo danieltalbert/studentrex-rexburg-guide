@@ -8,6 +8,19 @@ StudentRex is a responsive, accessible activity finder for students and resident
 
 ![StudentRex social preview](assets/social-preview.png)
 
+## Browse by mood
+
+<table>
+  <tr>
+    <td align="center"><img src="assets/adventure.svg" alt="Adventure category illustration" width="96"><br><strong>Adventure</strong></td>
+    <td align="center"><img src="assets/hiking.svg" alt="Hiking category illustration" width="96"><br><strong>Hiking</strong></td>
+    <td align="center"><img src="assets/chill.svg" alt="Relaxed activity category illustration" width="96"><br><strong>Chill</strong></td>
+    <td align="center"><img src="assets/nightlife.svg" alt="Nightlife category illustration" width="96"><br><strong>Nightlife</strong></td>
+  </tr>
+</table>
+
+The four repository-native illustrations double as a compact navigation language: they give every activity card a recognizable category without relying on color alone.
+
 ## Highlights
 
 - Mobile-first layout with keyboard-accessible navigation and filter controls.
